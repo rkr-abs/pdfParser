@@ -1,0 +1,19 @@
+{
+  "name": "ExtractPhoneno",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@laufire/utils": "^2.9.2",
+    "csv-stringify": "^6.3.0",
+    "mammoth": "^1.5.1",
+    "objects-to-csv": "^1.3.6",
+    "pdf-parse": "^1.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
