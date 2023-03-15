@@ -6,7 +6,7 @@ const getAllFiles=(dirPath, arrayOfFiles)=> {
 
   arrayOfFiles = arrayOfFiles || [];
 
-  files.forEach((file)=> {
+  files.map((file)=> {
     if (fs.statSync(dirPath + "/" + file).isDirectory()) {
       arrayOfFiles = getAllFiles(dirPath + "/" + file, arrayOfFiles);
     } else {
@@ -17,6 +17,5 @@ const getAllFiles=(dirPath, arrayOfFiles)=> {
   return arrayOfFiles;
 }
 
-const files = getAllFiles("./Naukri Responses/Resume Download");
 
 module.exports=getAllFiles

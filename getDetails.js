@@ -21,8 +21,6 @@ const docTypes = {
 		const emailAddresses = getMatch({res,value:'value',regex:emailRegex});
     const name = file.replace(nameRegex, '$1');
 
-		
-
 		return {name, phoneNumbers, emailAddresses} ;
 	},
 	

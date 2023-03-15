@@ -7,13 +7,12 @@ const getDetails = require('./getDetails');
 const fileParser = (files) => Promise.all(map(files, getDetails));
 
 const main = async () => {
-		const result = await fileParser(getAllFiles(path));
-		const csv = new ObjectsToCsv(result);
+		const resumeDetails = await fileParser(getAllFiles(path));
+		const csv = new ObjectsToCsv(resumeDetails);
 
-		console.table(result);
-		console.warn('done.');
+		console.table(await csv.toString());
 
-	return (result);
+	return resumeDetails;
 };
 
 main();
