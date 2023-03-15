@@ -1,10 +1,7 @@
 const fs = require('fs');
 const PDFParser = require('pdf-parse');
 const mammoth = require('mammoth');
-
-const phoneRegex = /(?:\+?\d{1,3}[- ]?)?\d{10}/g;
-const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z]{2,}\b/gi;
-const nameRegex = /.*Naukri_(.*)\[.*\.{1}(pdf|docx|doc)/;
+const {nameRegex,phoneRegex,emailRegex} = require('./config');
 
 const getMatch=({res,value,regex})=> (res[value].match(regex)||[]).join(', ')
 
@@ -31,4 +28,12 @@ const docTypes = {
 	
 }
 
-module.exports = docTypes;
+const getDetails = async (file) => {
+	const extractedDocType = file.replace(nameRegex, '$2');
+
+	const res = await docTypes[extractedDocType](file);
+
+	return res
+};
+
+module.exports = getDetails;
