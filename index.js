@@ -1,9 +1,8 @@
 const { map } = require('@laufire/utils/collection');
-const { peek } = require('@laufire/utils/debug');
 const ObjectsToCsv = require('objects-to-csv');
 
 const {path} = require('./config');
-const getAllFilesPath = require('./getAllFiles');
+const getAllFilesPath = require('./getAllFilesPath');
 const getCandidate = require('./getDetails');
 
 const getCandidates = (paths) => Promise.all(map(paths, getCandidate));

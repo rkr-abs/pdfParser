@@ -1,14 +1,14 @@
 const fs = require('fs');
 const path = require('path');
 
-const getAllFiles=(dirPath, arrayOfFiles)=> {
+const getAllFilesPath=(dirPath, arrayOfFiles)=> {
   const files = fs.readdirSync(dirPath);
 
   arrayOfFiles = arrayOfFiles || [];
 
   files.map((file)=> {
     if (fs.statSync(dirPath + "/" + file).isDirectory()) {
-      arrayOfFiles = getAllFiles(dirPath + "/" + file, arrayOfFiles);
+      arrayOfFiles = getAllFilesPath(dirPath + "/" + file, arrayOfFiles);
     } else {
       arrayOfFiles.push(path.join(dirPath, "/", file));
     }
@@ -18,4 +18,4 @@ const getAllFiles=(dirPath, arrayOfFiles)=> {
 }
 
 
-module.exports=getAllFiles
+module.exports=getAllFilesPath
