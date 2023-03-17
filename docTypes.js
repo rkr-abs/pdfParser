@@ -1,4 +1,3 @@
-const { peek } = require('@laufire/utils/debug');
 const { readFileSync } = require('fs');
 const { extractRawText } = require('mammoth');
 const pdfParser = require('pdf-parse');
@@ -12,8 +11,8 @@ const {
 const getMatch = ({ text, regex }) => (text.match(regex) || []).join(', ');
 
 const extractCandidate = ({ text, file }) => {
-	const phoneNumbers = getMatch({ text, regex: phoneRegex });
-	const emailAddresses = getMatch({ text, regex: emailRegex });
+	const phoneNumbers = getMatch({ text: text, regex: phoneRegex });
+	const emailAddresses = getMatch({ text: text, regex: emailRegex });
 	const name = file.replace(nameRegex, '$1');
 	const experiences = file.replace(experienceRegex, '$1');
 
