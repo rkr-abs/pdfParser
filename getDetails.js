@@ -1,5 +1,4 @@
-const { peek } = require('@laufire/utils/debug');
-const {nameRegex} = require('./config');
+const { nameRegex } = require('./config');
 const getCandidateDetails = require('./docTypes');
 
 const getFileType = (filePath) => filePath.replace(nameRegex, '$2');
